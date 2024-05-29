@@ -45,13 +45,16 @@
                 </button>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item bi bi-plus-lg" href="/products/add"
-                      > Add Product</a
+                    <a class="dropdown-item bi bi-plus-lg" href="/products/add"></a>
+                      Add Product</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item bi bi-plus-lg" href="/categories/add"
-                      > Add Category</a
+                    <a
+                      class="dropdown-item bi bi-plus-lg"
+                      href="/categories/add"
+                    >
+                      Add Category</a
                     >
                   </li>
                 </ul>
@@ -92,22 +95,11 @@
           </tr>
         </thead>
         <tbody>
+          {{ if .categories }}
           {{ range .categories }}
           <tr>
             <td>{{ .Name }}</td>
             <td>
-              <!-- <a
-                href="/categories/edit?id={{ .Id }}"
-                class="btn btn-outline-warning text-dark bi bi-pencil"
-                > Edit</a
-              >
-              <a
-                href="/categories/delete?id={{ .Id }}"
-                class="btn btn-outline-danger text-dark bi bi-trash"
-                onclick="return confirm('Are you sure?')"
-                > Delete</a
-              > -->
-              <!-- Example single danger button -->
               <div class="dropdown">
                 <button
                   class="btn dropdown-toggle"
@@ -138,6 +130,11 @@
             </td>
           </tr>
           {{ end }}
+          {{ else }}
+          <tr>
+            <td colspan="4">No Categories available</td>
+        </tr>
+    {{ end }}
         </tbody>
       </table>
     </div>
